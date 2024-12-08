@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swadeshi Business Solutions - Premium Brochure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+Malayalam:wght@300;400;700&display=swap');
+
+        :root {
+            --dark-bg: #0A0A0A;
+            --radiant-blue: #1A2980;
+            --iridescent-gold: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            --text-light: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Noto Sans Malayalam', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg), var(--radiant-blue));
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            perspective: 1000px;
+        }
+
+        .brochure {
+            width: 100%;
+            max-width: 1190px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(15, 15, 15, 0.8);
+            box-shadow: 
+                0 20px 50px rgba(0,0,0,0.7), 
+                0 0 100px var(--radiant-blue);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            transform-style: preserve-3d;
+            transform: rotateX(5deg) rotateY(5deg);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(to right, transparent, var(--iridescent-gold), transparent) 1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle at center, 
+                rgba(26, 41, 128, 0.3),
+                rgba(26, 41, 128, 0) 70%);
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            transform: translateZ(50px);
+        }
+
+        .logo img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 20px rgba(255,215,0,0.5),
+                0 0 40px rgba(255,215,0,0.3);
+            margin-right: 20px;
+        }
+
+        .logo-text {
+            background: var(--iridescent-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        .contact-info {
+            text-align: right;
+            color: var(--iridescent-gold);
+            background: linear-gradient(45deg, rgba(255,215,0,0.2), transparent);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .service-section {
+            background: linear-gradient(
+                135deg, 
+                rgba(30, 30, 30, 0.7), 
+                rgba(26, 41, 128, 0.3)
+            );
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(
+                to right, 
+                rgba(255,215,0,0.5), 
+                rgba(255,215,0,0.1)
+            ) 1;
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.5),
+                0 0 50px rgba(26, 41, 128, 0.3);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            transform: rotateX(5deg);
+        }
+
+        .service-section:hover {
+            transform: scale(1.03) rotateX(0);
+            box-shadow: 
+                0 15px 40px rgba(0,0,0,0.7),
+                0 0 60px rgba(255,215,0,0.3);
+        }
+
+        .service-title {
+            background: var(--iridescent-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        .service-description {
+            text-align: justify;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .brand-philosophy {
+            margin-top: 30px;
+            text-align: center;
+            background: linear-gradient(
+                135deg, 
+                rgba(30, 30, 30, 0.7), 
+                rgba(26, 41, 128, 0.3)
+            );
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(
+                to right, 
+                rgba(255,215,0,0.5), 
+                rgba(255,215,0,0.1)
+            ) 1;
+            box-shadow: 
+                0 15px 40px rgba(0,0,0,0.5),
+                0 0 60px rgba(26, 41, 128, 0.3);
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            background: linear-gradient(
+                to right, 
+                rgba(255,215,0,0.2), 
+                transparent
+            );
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .flag-colors {
+            background: linear-gradient(to right, 
+                #FF9933 33.33%, 
+                #FFFFFF 33.33% 66.66%, 
+                #138808 66.66%);
+            height: 10px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(255,215,0,0.5);
+        }
+
+        /* Hyperrealistic Texture Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.03) 0px, 
+                    rgba(255,255,255,0.03) 1px,
+                    transparent 1px, 
+                    transparent 2px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.03) 0px, 
+                    rgba(255,255,255,0.03) 1px,
+                    transparent 1px, 
+                    transparent 2px
+                );
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <div class="flag-colors"></div>
+        
+        <div class="header">
+            <div class="logo">
+                <img src="/api/placeholder/120/120" alt="Phenix Bird Logo" />
+                <div class="logo-text">Swadeshi Business Solutions</div>
+            </div>
+            <div class="contact-info">
+                <div>CONTACT: +91 9633410185</div>
+                <div>EMAIL: mnbstcr@gmail.com</div>
+                <div>LOCATION: 106- Thrissur IT Park, MG Road, Thrissur, Kerala 680001</div>
+            </div>
+        </div>
+
+        <div class="services">
+            <div class="service-section">
+                <h2 class="service-title">Construction & Property Development</h2>
+                <p class="service-description">
+                    Comprehensive services from initial planning to final delivery. We provide guidance in feasibility studies, design optimization, regulatory compliance, cost estimation, and project scheduling. By integrating modern approaches and sustainable methods, we help clients create distinctive properties that add value and minimize risks.
+                </p>
+                <p class="service-description" style="margin-top: 15px;">
+                    കൺസ്ട്രക്ഷൻ & പ്രോപ്പർട്ടി വികസനം പ്രാരംഭ ആസൂത്രണം മുതൽ ഡെലിവറി വരെ സമഗ്ര സേവനങ്ങൾ. സാധ്യതാ പഠനം, ഡിസൈൻ അനുകൂലീകരണം, നിയമ അനുസരണം, ചെലവ് നിർണ്ണയം, പ്രോജക്ട് ഷെഡ്യൂളിംഗ് എന്നിവയിൽ മാർഗ്ഗനിർദ്ദേശം നൽകുന്നു.
+                </p>
+            </div>
+
+            <div class="service-section">
+                <h2 class="service-title">Health Care & Life Insurance Consulting</h2>
+                <p class="service-description">
+                    Personalized solutions to help individuals and organizations navigate complex healthcare challenges. Our expert team analyzes needs, selects optimal plans, and assists in securing the best benefits while efficiently managing claims.
+                </p>
+                <p class="service-description" style="margin-top: 15px;">
+                    ആരോഗ്യ പരിരക്ഷ, ലൈഫ് ഇൻഷുറൻസ് കൺസൾട്ടിങ്: വ്യക्തികൾക്കും സ്ഥാപനങ്ങൾക്കും മികച്ച ആരോഗ്യ പരിഹാരങ്ങൾ. ആവശ്യങ്ങളുടെ വിശകലനം, ഏറ്റവും അനുയോജ്യമായ പ്ലാൻ തിരഞ്ഞെടുക്കൽ.
+                </p>
+            </div>
+        </div>
+
+        <div class="services" style="margin-top: 30px;">
+            <div class="service-section">
+                <h2 class="service-title">Agro Products Supply & Consulting</h2>
+                <p class="service-description">
+                    Supporting farmers, agricultural businesses, and distributors to excel in production, quality, and distribution processes. Providing expert guidance on high-yield crops, sustainable farming techniques, pest control, and efficient supply chain management.
+                </p>
+                <p class="service-description" style="margin-top: 15px;">
+                    കാർഷിക ഉൽപ്പന്ന വിതരണം & കൺസൾട്ടിങ്: കർഷകർക്കും കാർഷിക വ്യവസായിക​ൾക്കും വിതരണക്കാർക്കും സാങ്കേതിക വിദ്യ, ഉൽപ്പാദനം, ഗുണനിലവാരം എന്നിവയിൽ പിന്തുണ.
+                </p>
+            </div>
+
+            <div class="service-section">
+                <h2 class="service-title">Our Philosophy</h2>
+                <p class="service-description">
+                    Business is both an art and a science. While the science ensures smooth operations, the art makes your business special and keeps customers returning.
+                </p>
+                <p class="service-description" style="margin-top: 15px;">
+                    വ്യവസായം ഒരു കല കൂടിയാണ്, ഒരു ശാസ്ത്രം കൂടിയാണ്. ശാസ്ത്രം സുഗമമായ പ്രവർത്തനം ഉറപ്പാക്കുന്നതിനു പിന്നാലെ, കല നിങ്ങളുടെ വ്യവസായത്തെ വ്യത്യസ്തവും ആകർഷകവുമാക്കുന്നു.
+                </p>
+            </div>
+        </div>
+
+        <div class="brand-philosophy">
+            <h2 style="background: var(--iridescent-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;">SWADESHI BUSINESS SOLUTIONS</h2>
+            <p>Empowering Local Innovation | സ്വദേശി ബിസിനസ് പരിഹാരങ്ങൾ - പ്രാദേശിക നവോത്ഥാനത്തെ ശക്തിപ്പെടുത്തുന്നു</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Swadeshi Business Solutions | www.swadeshitech.com</p>
+        </div>
+
+        <div class="flag-colors"></div>
+    </div>
+</body>
+</html>
